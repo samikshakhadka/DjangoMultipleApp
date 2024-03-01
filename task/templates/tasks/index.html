@@ -5,6 +5,8 @@
         <ul>
             {% for task in tasks %}
                 <li> {{task}} </li>
+            {% empty %}
+            <h1> No Task </h1>
 
             {% endfor %}
         </ul>
