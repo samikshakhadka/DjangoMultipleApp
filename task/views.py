@@ -17,7 +17,7 @@ def index(request):
         request.session["tasks"] = []
 
     return render(request, "tasks/index.html", {
-        "tasks" : request.session["tasks"]
+        "tasks" : request.session["tasks"] # render the session
 
     })
 
@@ -26,7 +26,7 @@ def add(request):
         form = NewTaskForm(request.POST)
         if form.is_valid():
             task = form.cleaned_data["task"]
-            request.session["tasks"] += [task]
+            request.session["tasks"] += [task] #instead of append now
             return HttpResponseRedirect(reverse ("tasks:index")) #reverse engineer url to redirect back to dashboard after adding new task
         else:
             return render(request, "tasks/index.html",
