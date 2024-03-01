@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        
-        <title>Task</title>
-        
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
+
+{% extends "tasks/layout.html" %}
+
+{% block body %}
         <ul>
             {% for task in tasks %}
                 <li> {{task}} </li>
 
             {% endfor %}
         </ul>
-    </body>
-</html>
+        {# using tasks as the app name in the urls to prevent from namespace collission #}
+    <a href="{% url 'tasks:add' %}"> Add task</a>
+
+{% endblock %}

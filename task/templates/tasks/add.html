@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        
-        <title>Task</title>
-        
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
+{# template inheritance #}
+{% extends "tasks/layout.html" %}
+{% block body %}
         <h1>Add Task</h1>
         <form>
             <input type=" text" name="task">
             <input type="submit">
 
         </form>
-    </body>
-</html>
+
+
+        {# using tasks as the app name in the urls to prevent from namespace collission #}
+    <a href = "{% url 'tasks:index' %}"> Dashboard </a>
+
+{% endblock %}
